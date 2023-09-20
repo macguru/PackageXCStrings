@@ -1,0 +1,44 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Hello World!" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HALLO WELT!"
+          }
+        }
+      }
+    },
+    "JustAKey" : {
+      "comment" : "one comment to comment them all",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "THE GERMAN VALUE"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The value for the key"
+          }
+        }
+      }
+    },
+    "LocalizedStringKey" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOCALIZED STRING GERMAN"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

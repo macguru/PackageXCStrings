@@ -1,0 +1,17 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "mein string" : {
+      "comment" : "nope",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YOUR STRING IN GERMAN"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
