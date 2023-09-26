@@ -12,9 +12,10 @@ public struct SwiftUIView: View {
 	}
 	
 	public var body: some View {
-		Text("Hello World!")
-		Text(LocalizedStringKey("LocalizedStringKey"))
+		Text("Hello World!", bundle: .module)
+		Text(LocalizedStringKey("LocalizedStringKey"), bundle: .module)
 		Image(.screenshot)
+		Text("my string", bundle: .main)
     }
 }
 

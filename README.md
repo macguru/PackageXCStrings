@@ -21,11 +21,18 @@ In addition, the package contains a localized Image asset called `.screenshot`. 
 
 Run the app in the simulator. Use **Run Options > App Language** to switch between English and German localization. As of Xcode 15.0 RC, the behavior is as follows:
 
-- ✅ Strings from app target are localized just fine
+- ✅ Strings from app target are localized
 - ✅ Image assets from package are localized
-- ❌ Strings from package are not localized (the show _just the key_)
+- ✅ Strings from package are localized (but we need to explicitly mention `bundle: .module`)
+- ❌ Xcode does not respect the bundle when updating XCStrings 
 
-### Considerations
+### Criticism
 
-- You can tell that Xcode does recognize the `Localizable.xcstrings` in the Package, by making changes to any string (e.g. changing a string key or adding a string), then building the project. Xocde will update the package's strings catalog accordingly. But the strings will not load.
-- I commented out the resource processing for the package target (see `Package.swift:18`), as it does not seem to make any difference. Actually I'm not sure what is expected here. 
+The need to specify a bundle when loading strings is obvious only from historical perspective. It does not make sense to implement a modularized "package" system to then try to load strings from the main bundle by default.
+
+Xcode tooling is erroneous in this regard: All strings references in a package are added to the package's `Localizable.xcstrings`, regardless of their source:
+- ✅ `Text("key", bundle: .module)` should be in the packages xcstrings
+- ❌ `Text("key", bundle: .main)` should be NOT be added to the xcstrings, but is
+- ❌ `Text("key")`, as shorthand for the above, has the same problem
+
+Lastly, it's not clear to me what the `resources: [.process("Resources")]` is used and needed for. It seems to work without this as well.
